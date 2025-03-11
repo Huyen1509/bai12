@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bài Tập JavaScript</h1>
+<h2> Thực hành các phép toán và kiểm tra số</h2>
+
+<p id="ketQua"></p>
+
+<script>
+    // Khai báo các biến với các kiểu dữ liệu khác nhau
+    var soNguyen = 10;
+    var chuoi = "Hello, JavaScript!";
+    var dungSai = true;
+    var mang = [1, 2, 3, 4, 5];
+    var doiTuong = { ten: "John", tuoi: 25 };
+    
+    function tinhToan() {
+        var a = parseFloat(document.getElementById("soA").value);
+        var b = parseFloat(document.getElementById("soB").value);
+        document.getElementById("ketQua").innerHTML =
+            "Tổng: " + (a + b) + "<br>" +
+            "Hiệu: " + (a - b) + "<br>" +
+            "Tích: " + (a * b) + "<br>" +
+            "Thương: " + (b !== 0 ? (a / b) : "Không thể chia cho 0");
+    }
+    
+    function kiemTraChanLe() {
+        var x = parseInt(document.getElementById("soChanLe").value);
+        document.getElementById("ketQua").innerHTML = (x % 2 === 0) ? "Là số chẵn" : "Là số lẻ";
+    }
+    
+    function kiemTraLonHon10() {
+        var x = parseFloat(document.getElementById("soLonHon10").value);
+        if (x > 10) {
+            document.getElementById("ketQua").innerHTML = "Số lớn hơn 10";
+        } else {
+            document.getElementById("ketQua").innerHTML = "Số không lớn hơn 10";
+        }
+    }
+    
+    function hienThiNgayTrongTuan() {
+        var ngay = parseInt(document.getElementById("ngayTrongTuan").value);
+        var ketQua;
+        switch (ngay) {
+            case 1: ketQua = "Chủ nhật"; break;
+            case 2: ketQua = "Thứ hai"; break;
+            case 3: ketQua = "Thứ ba"; break;
+            case 4: ketQua = "Thứ tư"; break;
+            case 5: ketQua = "Thứ năm"; break;
+            case 6: ketQua = "Thứ sáu"; break;
+            case 7: ketQua = "Thứ bảy"; break;
+            default: ketQua = "Giá trị không hợp lệ, vui lòng nhập từ 1 đến 7";
+        }
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+</script>
+
+<label>Nhập số A: <input type="number" id="soA"> Nhập số B: <input type="number" id="soB"> <button onclick="tinhToan()">Tính toán</button></label>
+<br>
+<label>Nhập số kiểm tra chẵn lẻ: <input type="number" id="soChanLe"> <button onclick="kiemTraChanLe()">Kiểm tra</button></label>
+<br>
+<label>Nhập số kiểm tra lớn hơn 10: <input type="number" id="soLonHon10"> <button onclick="kiemTraLonHon10()">Kiểm tra</button></label>
+<br>
+<label>Nhập số (1 - 7) để hiển thị ngày trong tuần: <input type="number" id="ngayTrongTuan"> <button onclick="hienThiNgayTrongTuan()">Hiển thị</button></label>
+
+</body>
+</html>
