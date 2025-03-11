@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bài Tập JavaScript</h1>
+<h2>Thực hành các phép toán và kiểm tra số</h2>
+
+<p id="ketQua"></p>
+
+<script>
+    function kiemTraSoNguyenDuong() {
+        var x = parseInt(document.getElementById("soNguyenDuong").value);
+        document.getElementById("ketQua").innerHTML = (x > 0 && x % 1 === 0) ? "Là số nguyên dương" : "Không phải số nguyên dương";
+    }
+    
+    function kiemTraSoNguyenAm() {
+        var x = parseInt(document.getElementById("soNguyenAm").value);
+        document.getElementById("ketQua").innerHTML = (x < 0) ? "Là số nguyên âm" : "Không phải số nguyên âm";
+    }
+    
+    function tinhTong() {
+        var a = parseFloat(document.getElementById("soA").value);
+        var b = parseFloat(document.getElementById("soB").value);
+        document.getElementById("ketQua").innerHTML = "Tổng: " + (a + b);
+    }
+    
+    function giaiPTBac1() {
+        var a = parseFloat(document.getElementById("heSoA").value);
+        var b = parseFloat(document.getElementById("heSoB").value);
+        var ketQua = (a === 0) ? (b === 0 ? "Vô số nghiệm" : "Vô nghiệm") : "Nghiệm x = " + (-b / a);
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+    
+    function kiemTraSoNguyenTo() {
+        var x = parseInt(document.getElementById("soNguyenTo").value);
+        var isPrime = x > 1;
+        for (var i = 2; i <= Math.sqrt(x); i++) {
+            if (x % i === 0) isPrime = false;
+        }
+        document.getElementById("ketQua").innerHTML = isPrime ? "Là số nguyên tố" : "Không phải số nguyên tố";
+    }
+    
+    function kiemTraSoChinhPhuong() {
+        var x = parseInt(document.getElementById("soChinhPhuong").value);
+        var sqrt = Math.sqrt(x);
+        document.getElementById("ketQua").innerHTML = (sqrt % 1 === 0) ? "Là số chính phương" : "Không phải số chính phương";
+    }
+</script>
+<label>Nhập số kiểm tra nguyên dương: <input type="number" id="soNguyenDuong"> <button onclick="kiemTraSoNguyenDuong()">Kiểm tra</button></label>
+<br>
+<label>Nhập số kiểm tra nguyên âm: <input type="number" id="soNguyenAm"> <button onclick="kiemTraSoNguyenAm()">Kiểm tra</button></label>
+<br>
+<label>Nhập số A: <input type="number" id="soA"> Nhập số B: <input type="number" id="soB"> <button onclick="tinhTong()">Tính tổng</button></label>
+<br>
+<label>Nhập hệ số a: <input type="number" id="heSoA"> Nhập hệ số b: <input type="number" id="heSoB"> <button onclick="giaiPTBac1()">Giải PT</button></label>
+<br>
+<label>Nhập số kiểm tra số nguyên tố: <input type="number" id="soNguyenTo"> <button onclick="kiemTraSoNguyenTo()">Kiểm tra</button></label>
+<br>
+<label>Nhập số kiểm tra số chính phương: <input type="number" id="soChinhPhuong"> <button onclick="kiemTraSoChinhPhuong()">Kiểm tra</button></label>
+
+
+</body>
+</html>
